@@ -1,0 +1,20 @@
+关于网口驱动芯片davicom9000A的说明：
+davicom9000A的驱动最新版本在淄博版本(Labeled '合并淄博现场修改前')上添加。并附有davicom.txt文档说明当前版本错存在的问题。
+为了区分davicom9000A以及smsc911x两款不同网口驱动芯片，程序在sw_pd.cfg文件中添加了开关如下：
+#################################################
+#网口芯片 开启此功能必须先开启ETHNET_MODE       #
+#################################################
+SMSC = 1
+DAVICOM9000A = 2
+
+ETH_CHIPSET = DAVICOM9000A
+
+由于是硬件上区别本应加在pudong.cfg文件中，但由于ETHNET_MODE定义在sw_pd.cfg中，而此块芯片也只有在ETHNET_MODE开启的
+情况下才可以打开，为直观添加在sw_pd.cfg中
+修改所涉及到的文件：
+src\config\sw_pd.cfg
+src\eth\eth.mak
+src\eth\dm9000a.c (新增)
+src\eth\DAVICOM.txt (新增)
+src\sdcapps\root\root.c
+src\sdcapps\ui_adv\nupnettest.c

@@ -1,0 +1,27 @@
+
+ 
+ 
+; Environment variables
+OS=
+ID=T32
+TMP=c:\temp
+SYS=C:\T32\
+
+
+PBI=
+USB
+
+; Printer settings 
+PRINTER=WINDOWS
+
+
+; Screen fonts
+SCREEN=
+MWI
+
+; Remote Control Access
+RCL=NETASSIST
+PACKLEN=1024
+PORT=20000
+
+

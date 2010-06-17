@@ -1,0 +1,1 @@
+zlib c:\\cnxt_nupbas_1_8\srcLoader\sdcapps\build\pudong\nup\sw_pd\debug\use\bin\HUANGPU_RAM.BIN

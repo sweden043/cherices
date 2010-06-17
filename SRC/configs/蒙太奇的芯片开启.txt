@@ -1,0 +1,10 @@
+易 (Simon Lai) 说:
+蒙太奇的芯片，用什么宏开启的？
+Eric Zhou 再忙，也别坏了心情 说:
+#define m88dc2000 三个地方，在原码里，
+易 (Simon Lai) 说:
+查到了
+易 (Simon Lai) 说:
+只要开启这个就可以？
+Eric Zhou 再忙，也别坏了心情 说:
+是的

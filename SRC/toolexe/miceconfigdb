@@ -1,0 +1,118 @@
+;*****************************************************************************
+;The BSP reserves 256 bytes at the top of reported RAM for Multi-ICE use.
+;arm9RestartCodeAddress requires 40 or 128 bytes of destructable RAM
+;depending on where you look it up, so give it all of the reserved 256 bytes.
+;safeNonVectorAddress requires 64KB of read-only RAM not overlapping 
+;the vector table that will not cause adverse effects to any hardware
+;when it is read (such as buffers used for hardware would), so 
+;give it RAM from the top as reported by sysPhysMemTop() (VxWorks' stack area)
+;where we are reasonably confident that there isn't any used for hardware 
+;buffers.
+
+;The amount of RAM is limited to 32MB when reported to 
+;VxWorks by the sysPhysMemTop() function or something below it. Thus the 
+;amount of RAM in the IRD may be larger than 32MB. This is the case for all 
+;Wabash IRD's which have 64MB of RAM that is limited to 32MB.
+;Klondike IRD's have varying amounts of RAM. Thus, we assume 16MB here and 
+;base memSize, arm9RestartCodeAddress, and safeNonVectorAddress from this. 
+
+;If the IRD has a different amount of RAM, then these values should be changed
+;to be based on the amount of RAM. memSize, arm9RestartCodeAddress and 
+;safeNonVectorAddress are based below on the amount of RAM returned by
+;sysPhysMemTop() (limited to 32MB). However, it may be possible (not tried)
+;to use all of RAM (not limited) for these variables.
+;
+; TR
+;*****************************************************************************
+
+
+[SPARTA_NA]
+cpuType                  = ARMARCH4
+bspName	                 = Wabash
+memSize	                 = 0x2000000
+hostPoolBase             = 0x120
+hostPoolSize             = 0x5E0
+checksum                 = NO
+arm9RestartCodeAddress   = 0x1FFFF00
+safeNonVectorAddress     = 0x1FEFF00
+driverName               = ARM920T
+tapPosition              = 2
+serverHost               = localhost
+
+[SPARTA_EURO_NA]
+cpuType                  = ARMARCH4
+bspName	                 = Wabash
+memSize	                 = 0x2000000
+hostPoolBase             = 0x120
+hostPoolSize             = 0x5E0
+checksum                 = NO
+arm9RestartCodeAddress   = 0x1FFFF00
+safeNonVectorAddress     = 0x1FEFF00
+driverName               = ARM920T
+tapPosition              = 2
+serverHost               = localhost
+
+[KLONMDP]
+cpuType                  = ARMARCH4
+bspName	                 = Klondike
+memSize	                 = 0x1000000
+hostPoolBase             = 0x120
+hostPoolSize             = 0x5E0
+checksum                 = NO
+arm9RestartCodeAddress   = 0xFFFF00
+safeNonVectorAddress     = 0xFEFF00
+driverName               = ARM940T
+tapPosition              = 0
+serverHost               = localhost
+
+[KLON943]
+cpuType                  = ARMARCH4
+bspName	                 = Klondike
+memSize	                 = 0x1000000
+hostPoolBase             = 0x120
+hostPoolSize             = 0x5E0
+checksum                 = NO
+arm9RestartCodeAddress   = 0xFFFF00
+safeNonVectorAddress     = 0xFEFF00
+driverName	             = ARM940T
+tapPosition              = 0
+serverHost               = localhost
+
+[WABASHDVT]
+cpuType                  = ARMARCH4
+bspName	                 = Wabash
+memSize	                 = 0x2000000
+hostPoolBase             = 0x120
+hostPoolSize             = 0x5E0
+checksum                 = NO
+arm9RestartCodeAddress   = 0x1FFFF00
+safeNonVectorAddress     = 0x1FEFF00
+driverName               = ARM920T
+tapPosition              = 2
+serverHost               = localhost
+
+[ATHENS_EURO_NA]
+cpuType                  = ARMARCH4
+bspName	                 = Wabash
+memSize	                 = 0x2000000
+hostPoolBase             = 0x120
+hostPoolSize             = 0x5E0
+checksum                 = NO
+arm9RestartCodeAddress   = 0x1FFFF00
+safeNonVectorAddress     = 0x1FEFF00
+driverName               = ARM920T
+tapPosition              = 2
+serverHost               = localhost
+
+[ATHENS_NA]
+cpuType                  = ARMARCH4
+bspName	                 = Wabash
+memSize	                 = 0x2000000
+hostPoolBase             = 0x120
+hostPoolSize             = 0x5E0
+checksum                 = NO
+arm9RestartCodeAddress   = 0x1FFFF00
+safeNonVectorAddress     = 0x1FEFF00
+driverName               = ARM920T
+tapPosition              = 2
+serverHost               = localhost
