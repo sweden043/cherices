@@ -1,0 +1,3 @@
+---- USE_PORTING_TRANSPARENT Matches (2 in 2 files) ----
+Ipanel_config.h (c:\cnxt_nupbas_1_8\src\sdcapps\ipanel)://#define USE_PORTING_TRANSPARENT  //如果color值与PORTING层定义的透明色相同时, 将调整color值, 将其加1, 这样颜色损坏得最小.   
+Ipanel_graphics.c (c:\cnxt_nupbas_1_8\src\sdcapps\ipanel):#ifdef USE_PORTING_TRANSPARENT

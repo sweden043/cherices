@@ -1,0 +1,46 @@
+;Default startup program for TRACE32
+;
+;This startup program can be modified according to your needs.
+
+ LOCAL &fname
+ ENTRY &fname
+
+;choose hex mode for input
+ radix hex
+
+;Add some extra buttons to the toolbar
+
+ menu.rp
+ (
+  add
+  toolbar
+  (
+   separator
+   toolitem "Source/List" "list" "Data.List"
+   toolitem "Memory Dump" "dump" "Data.dump"
+   toolitem "Register" "reg" "Register"
+   separator
+   toolitem "Watch" ":varwatch" "Var.Watch"
+   toolitem "Stack" ":varframe" "Var.Frame /l /c"
+   toolitem "Automatic Watch" ":varref" "Var.Ref"
+   separator
+   toolitem "List Breakpoints" "break" "Break.List"
+   toolitem "List Symbols" "symbols" "sYmbol.Browse"
+   separator
+  )
+ )
+
+;Recall and Define History File
+ autostore , history
+
+ IF "&fname"==""
+ (   
+    PRINT "No script passed in on command line"
+    PRINT "READY!"
+ )
+ ELSE
+ (
+    DO &fname 
+ )
+
+ enddo
